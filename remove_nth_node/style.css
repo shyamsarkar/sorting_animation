@@ -1,0 +1,37 @@
+.rn-main { grid-template-columns: 5fr 7fr; }
+.rn-left { grid-column: 1; display: flex; flex-direction: column; gap: 20px; }
+.rn-inputs { display: grid; grid-template-columns: 1fr 110px; gap: 12px; padding: 16px; background: var(--bg-surface-2); border: 1px solid var(--border); border-radius: var(--radius-md); }
+/* The shared input component assigns a grid position for heap pages.
+   Reset it here so the list and n fields occupy separate columns. */
+.rn-inputs .mh-input-section { grid-column: auto; grid-row: auto; gap: 8px; }
+.rn-error { grid-column: 1 / -1; min-height: 18px; color: var(--error); font-size: 13px; }
+.rn-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; }
+.rn-speed { margin-left: auto; color: var(--text-secondary); font-size: 13px; display: flex; gap: 7px; align-items: center; }
+.rn-speed select { background: var(--bg-surface-2); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); padding: 7px; }
+.rn-progress { display: flex; align-items: center; gap: 12px; color: var(--text-secondary); font: 13px 'JetBrains Mono', monospace; }
+.rn-progress .step-progress { min-width: 100px; }
+.rn-info-body { display: flex; flex-direction: column; gap: 15px; font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+.rn-info-body code { color: #93c5fd; font-family: 'JetBrains Mono', monospace; }
+.rn-insight { padding: 12px 14px; border: 1px solid rgba(59,130,246,.35); border-radius: var(--radius-md); background: rgba(59,130,246,.1); }
+.rn-insight strong { color: var(--accent); }
+.rn-insight p { margin-top: 3px; }
+.rn-steps { display: grid; gap: 9px; padding: 0; list-style: none; }
+.rn-steps li { display: flex; gap: 8px; }
+.rn-steps span { width: 20px; height: 20px; flex: 0 0 20px; display: grid; place-items: center; background: var(--accent); color: #fff; border-radius: 50%; font-size: 11px; font-weight: 700; }
+.rn-list { min-height: 180px; padding: 52px 20px 25px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; border-radius: var(--radius-md); background: var(--bg-surface-2); margin-bottom: 16px; }
+.rn-node-wrap { position: relative; display: grid; justify-items: center; gap: 7px; }
+.rn-node { width: 54px; height: 54px; display: grid; place-items: center; border: 2px solid var(--border-hover); border-radius: 50%; color: var(--text-primary); background: var(--bg-surface-3); font: 600 16px 'JetBrains Mono', monospace; transition: .25s ease; }
+.rn-node.dummy { border-radius: 12px; color: #93c5fd; border-color: rgba(59,130,246,.6); }
+.rn-node.fast { border-color: var(--warning); box-shadow: 0 0 16px rgba(245,158,11,.38); }
+.rn-node.slow { border-color: var(--success); box-shadow: 0 0 16px rgba(16,185,129,.38); }
+.rn-node.fast.slow { border-color: #c084fc; box-shadow: 0 0 16px rgba(192,132,252,.38); }
+.rn-node.removing { border-color: var(--error); color: #fca5a5; opacity: .58; transform: scale(.88); }
+.rn-index { font: 10px 'JetBrains Mono', monospace; color: var(--text-muted); white-space: nowrap; }
+.rn-pointer { position: absolute; top: -33px; padding: 3px 7px; border-radius: 5px; color: var(--text-primary); background: #334155; font: 600 10px 'JetBrains Mono', monospace; white-space: nowrap; }
+.rn-arrow { color: var(--text-muted); font-size: 23px; padding-bottom: 18px; }
+.rn-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 16px; }
+.rn-stats div, .rn-explanation, .rn-result { border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--bg-surface-2); }
+.rn-stats div { padding: 11px 12px; }.rn-stats span, .rn-result span { display:block; color: var(--text-secondary); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; }.rn-stats strong { display:block; margin-top: 4px; font: 600 16px 'JetBrains Mono', monospace; }
+.rn-explanation { min-height: 72px; padding: 14px; color: var(--text-secondary); font-size: 14px; line-height: 1.55; }
+.rn-result { display: none; margin-top: 16px; padding: 13px; }.rn-result.show { display: block; border-color: rgba(16,185,129,.5); }.rn-result strong { display: block; color: var(--success); margin-top: 5px; font: 600 16px 'JetBrains Mono', monospace; }
+@media (max-width: 800px) { .rn-main { display: block; }.rn-left { margin-bottom: 24px; }.rn-stats { grid-template-columns: 1fr; }.rn-speed { margin-left: 0; }.rn-list { justify-content: flex-start; } }

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Remove Nth Node From End · AlgoVis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="mh-layout">
+    <header class="mh-header"><div class="mh-header-inner">
+      <a href="../index.html" class="btn-back">← Back</a>
+      <span class="mh-header-title">Remove Nth Node From End Visualizer</span>
+    </div></header>
+    <main class="mh-main rn-main">
+      <section class="rn-left">
+        <div>
+          <h1 class="mh-page-title">Remove Nth Node From End</h1>
+          <p class="mh-page-sub">Use two pointers and a dummy node to remove a node in one pass.</p>
+        </div>
+        <div class="rn-inputs">
+          <label class="mh-input-section"><span class="mh-input-label">Linked list values</span><input id="listInput" class="mh-input" value="[1, 2, 3, 4, 5]" spellcheck="false" /></label>
+          <label class="mh-input-section"><span class="mh-input-label">n (from the end)</span><input id="nInput" class="mh-input" type="number" min="1" value="2" /></label>
+          <p class="rn-error" id="inputError" role="alert"></p>
+        </div>
+        <div class="rn-controls">
+          <button class="btn-primary" id="playBtn"><span id="playIcon">▶</span> <span id="playText">Play</span></button>
+          <button class="btn-step" id="prevBtn" disabled>← Previous</button>
+          <button class="btn-step" id="nextBtn">Next →</button>
+          <button class="btn-step" id="resetBtn">Reset</button>
+          <label class="rn-speed">Speed <select id="speedSelect"><option value="1700">Slow</option><option value="1000" selected>Normal</option><option value="450">Fast</option></select></label>
+        </div>
+        <div class="rn-progress"><span>Step <span id="stepCount">1</span> of <span id="totalSteps">1</span></span><div class="step-progress"><div class="step-progress-bar" id="progressFill"></div></div></div>
+        <section class="mh-panel rn-info">
+          <div class="mh-panel-title">How It Works</div>
+          <div class="rn-info-body">
+            <p>A <code>dummy</code> node before the head makes removal safe even when the head is the answer.</p>
+            <div class="rn-insight"><strong>Key insight</strong><p>Move <code>fast</code> n nodes ahead. Then move both pointers together. When <code>fast</code> reaches the last node, <code>slow</code> is immediately before the node to remove.</p></div>
+            <ol class="rn-steps">
+              <li><span>1</span> Create <code>dummy → head</code>; start both pointers at dummy.</li>
+              <li><span>2</span> Advance <code>fast</code> by n nodes.</li>
+              <li><span>3</span> Move both pointers until <code>fast.next</code> is null.</li>
+              <li><span>4</span> Skip <code>slow.next</code> to unlink the target node.</li>
+            </ol>
+            <p><strong>Time:</strong> O(L) &nbsp; <strong>Space:</strong> O(1)</p>
+          </div>
+        </section>
+      </section>
+      <section class="mh-vis-area"><div class="mh-panel">
+        <div class="mh-panel-title">Visualization</div>
+        <div class="rn-list" id="listDisplay" aria-live="polite"></div>
+        <div class="rn-stats">
+          <div><span>Fast pointer</span><strong id="fastValue">dummy</strong></div>
+          <div><span>Slow pointer</span><strong id="slowValue">dummy</strong></div>
+          <div><span>Node to remove</span><strong id="targetValue">—</strong></div>
+        </div>
+        <div class="rn-explanation" id="explanation"></div>
+        <div class="rn-result" id="resultBox"><span>Result list</span><strong id="resultList"></strong></div>
+      </div></section>
+    </main>
+  </div>
+  <script src="script.js" defer></script>
+</body>
+</html>
